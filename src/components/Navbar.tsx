@@ -8,6 +8,7 @@ import Logo from "@/assets/Logo.png";
 import Link from "./Link";
 
 
+// typeScript for only props type checking...
 type Props = {
     isTopOfPage: boolean;
     selectedPage: SelectedPage;

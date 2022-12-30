@@ -15,7 +15,7 @@ yarn add -D tailwindcss postcss autoprefixer
 ## Configuration tasks :
 
 1. go to ==> `vite.config.ts` file & past this...
-    * for convenient to import files
+    * <u>for convenient to import files</u>
 
 ```js
 import path from 'path';
@@ -26,7 +26,7 @@ resolve: {
 ```
 
 2. go to ==> `tsconfig.json` file & past this...
-    * for convenient to import files
+    * <u>for convenient to import files</u>
 
 ```js
 "paths" : {
@@ -37,5 +37,7 @@ resolve: {
 
 ## Learning Context :
 1. tailwind documentation extension (`ctrl + alt + t`)
-2. vit & ts config for shot file name import 
+2. `vit` & `ts` config for shot file name import 
 3. config tailwind for custom colors, fonts, scree sizes & images...
+4. file extension must be `.ts` or `.tsx` instead of `.js`
+5. `useMediaQuery.ts` hook is only detect for, it mobile size screen or not?
