@@ -1,1 +1,6 @@
+export { default as OurClasses } from './OurClasses'
+export { default as ContactUs } from './ContactUs'
+export { default as Benefits } from './Benefits'
+export { default as Footer } from './Footer'
 export { default as Navbar } from './Navbar'
+export { default as Home } from './Home'

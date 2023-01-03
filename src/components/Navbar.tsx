@@ -4,7 +4,7 @@ import { SelectedPage } from "@/shared/types";
 import { useState } from "react";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
-import Logo from "@/assets/Logo.png";
+import images from "@/assets";
 import Link from "./Link";
 
 
@@ -35,7 +35,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                     <div className={`${flexBetween} w-full gap-16`}>
 
                         {/* LEFT SIDE */}
-                        <img alt="logo" src={Logo} />
+                        <img alt="logo" src={images.Logo} />
 
                         {/* RIGHT SIDE */}
                         {
@@ -68,6 +68,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
                             ) : (
 
                                 <button
+                                    title="Menu"
                                     className="rounded-full bg-secondary-500 p-2"
                                     onClick={() => setIsMenuToggled(!isMenuToggled)}
                                 >
@@ -87,8 +88,8 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 
                         {/* CLOSE ICON */}
                         <div className="flex justify-end p-12">
-                            <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                                <XMarkIcon className="h-6 w-6 text-gray-400" />
+                            <button onClick={() => setIsMenuToggled(!isMenuToggled)} title="close">
+                                <XMarkIcon className="h-6 w-6 text-gray-400 hover:text-red-600 duration-300" />
                             </button>
                         </div>
 
