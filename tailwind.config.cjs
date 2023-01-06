@@ -20,17 +20,17 @@ module.exports = {
       backgroundImage: (theme) => ({
         "gradient-yellowRed":
           "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",
-        "mobile-home": "url('./assets/HomePageGraphic.png')",
+        "mobile-home": "url('./src/assets/HomePageGraphic.png')",
       }),
       fontFamily: {
         dmSans: ["DM Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
       },
       content: {
-        evolveText: "url('./assets/EvolveText.png')",
-        abstractWaves: "url('./assets/AbstractWaves.png')",
-        sparkles: "url('./assets/Sparkles.png')",
-        circles: "url('./assets/Circles.png')",
+        evolveText: "url('./src/assets/EvolveText.png')",
+        abstractWaves: "url('./src/assets/AbstractWaves.png')",
+        sparkles: "url('./src/assets/Sparkles.png')",
+        circles: "url('./src/assets/Circles.png')",
       },
     },
     screens: {

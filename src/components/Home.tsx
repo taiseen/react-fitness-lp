@@ -21,6 +21,8 @@ const Home = ({ setSelectedPage }: Props) => {
       {/* IMAGE AND MAIN HEADER */}
       <motion.div
         className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
+        // highlighting where we are in navigation...
+        // when we enter this view port this function is execute...
         onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
       >
         {/* MAIN HEADER */}
@@ -38,7 +40,7 @@ const Home = ({ setSelectedPage }: Props) => {
             }}
           >
             <div className="relative">
-              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolvetext">
+              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] md:before:content-evolveText">
                 <img alt="home-page-text" src={images.HomePageText} />
               </div>
             </div>
