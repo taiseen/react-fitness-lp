@@ -45,9 +45,5 @@ resolve: {
 
 
 <!-- 
-
-https://github.dev/ed-roh/gym-typescript 
-
-https://app.netlify.com/sites/fitness-app-lp/overview
-
+https://app.netlify.com/sites/fitness-app-lp/deploys
 -->
