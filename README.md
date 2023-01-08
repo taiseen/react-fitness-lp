@@ -7,10 +7,9 @@
 * React 
 * TypeScript
 * Tailwind CSS
+* Framer Motion
 
-
-
-yarn add -D tailwindcss postcss autoprefixer
+## Host at [Cloud Flare](https://dash.cloudflare.com)
 
 
 ## Learning Context :
@@ -19,6 +18,8 @@ yarn add -D tailwindcss postcss autoprefixer
 3. config tailwind for custom colors, fonts, scree sizes & images...
 4. file extension must be `.ts` or `.tsx` instead of `.js`
 5. `useMediaQuery.ts` hook is only detect for, it mobile size screen or not?
+
+
 
 
 ## Learn these - configuration tasks :
