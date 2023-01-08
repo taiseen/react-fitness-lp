@@ -1,5 +1,6 @@
 import { HomeModernIcon, UserGroupIcon, AcademicCapIcon } from "@heroicons/react/24/solid";
 import { BenefitType, SelectedPage } from '@/shared/types';
+import { commonAnimations } from "@/constants/data";
 import { motion } from "framer-motion";
 import ActionButton from '@/shared/ActionButton';
 import BenefitsChild from "./BenefitsChild";
@@ -48,14 +49,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
         {/* HEADER */}
         <motion.div
           className="md:my-5 md:w-3/5"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, x: -50 },
-            visible: { opacity: 1, x: 0 },
-          }}
+          {...commonAnimations}
         >
           <HText>MORE THAN JUST GYM.</HText>
           <p className="my-5 text-sm">

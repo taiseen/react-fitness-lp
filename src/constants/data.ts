@@ -1,4 +1,4 @@
-import { ClassType } from './../shared/types';
+import { ClassType } from '@/shared/types';
 import images from "@/assets";
 
 export const sectionName = [
@@ -54,3 +54,14 @@ export const classes: Array<ClassType> = [
         image: images.image6,
     },
 ];
+
+export const commonAnimations = {
+    initial: "hidden",
+    whileInView: "visible",
+    viewport: { once: true, amount: 0.5 },
+    transition: { duration: 0.5 },
+    variants: {
+        hidden: { opacity: 0, x: -50 },
+        visible: { opacity: 1, x: 0 },
+    },
+};

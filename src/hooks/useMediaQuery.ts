@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 
 const useMediaQuery = (query: string) => {
 
-    const [matches, setMatches] = useState(false);
+    const [matches, setMatches] = useState<boolean>(false);
 
     useEffect(() => {
 
+        // window.matchMedia() is a JS function that returns a MediaQueryList object.
         const media = window.matchMedia(query);
 
         media.matches !== matches && setMatches(media.matches);

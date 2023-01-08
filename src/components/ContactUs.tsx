@@ -1,5 +1,6 @@
-import { useForm } from "react-hook-form";
+import { commonAnimations } from "@/constants/data";
 import { SelectedPage } from "@/shared/types";
+import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import HText from "@/shared/HText";
 import images from "@/assets";
@@ -31,14 +32,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
         {/* HEADER */}
         <motion.div
           className="md:w-3/5"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          variants={{
-            hidden: { opacity: 0, x: -50 },
-            visible: { opacity: 1, x: 0 },
-          }}
+          {...commonAnimations}
         >
           <HText>
             <span className="text-primary-500">JOIN NOW</span> TO GET IN SHAPE
@@ -54,14 +48,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
         <div className="mt-10 justify-between gap-8 md:flex">
           <motion.div
             className="mt-10 basis-3/5 md:mt-0"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            {...commonAnimations}
           >
             <form
               target="_blank"
@@ -133,14 +120,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
 
           <motion.div
             className="relative mt-16 basis-2/5 md:mt-0"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            {...commonAnimations}
           >
             <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolveText">
               <img
@@ -150,6 +130,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               />
             </div>
           </motion.div>
+          
         </div>
       </motion.div>
     </section>
