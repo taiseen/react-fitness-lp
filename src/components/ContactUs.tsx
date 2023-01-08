@@ -1,4 +1,4 @@
-import { commonAnimations } from "@/constants/data";
+import { commonAnimations, contactFormData } from "@/constants/data";
 import { SelectedPage } from "@/shared/types";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
@@ -13,12 +13,14 @@ type Props = {
 
 const ContactUs = ({ setSelectedPage }: Props) => {
 
-  const emailLink = 'https://formsubmit.co/30cc3c9cf1c5d5320aa7d4e9c63d5c4d';
-  const inputStyles = `mb-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white`;
+  const encryptedEmailAddress = '30cc3c9cf1c5d5320aa7d4e9c63d5c4d';
+  const emailLink = `https://formsubmit.co/${encryptedEmailAddress}`;
+  const inputStyles = `mb-6 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white`;
 
   const { register, trigger, formState: { errors } } = useForm();
 
   const onSubmit = async (e: any) => {
+  
     const isValid = await trigger();
     if (!isValid) {
       e.preventDefault();
@@ -53,59 +55,61 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             {...commonAnimations}
           >
             <form
-              target="_blank"
               onSubmit={onSubmit}
               action={emailLink}
               method="POST"
             >
-              <input
-                className={inputStyles}
-                type="text"
-                placeholder="NAME"
-                {...register("name", {
-                  required: true,
-                  maxLength: 100,
-                })}
-              />
-              {errors.name && (
-                <p className="mt-1 text-primary-500">
-                  {errors.name.type === "required" && "This field is required."}
-                  {errors.name.type === "maxLength" && "Max length is 100 char."}
-                </p>
-              )}
-
-              <input
-                className={inputStyles}
-                type="text"
-                placeholder="EMAIL"
-                {...register("email", {
-                  required: true,
-                  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                })}
-              />
-              {errors.email && (
-                <p className="mt-1 text-primary-500">
-                  {errors.email.type === "required" && "This field is required."}
-                  {errors.email.type === "pattern" && "Invalid email address."}
-                </p>
-              )}
-
-              <textarea
-                className={inputStyles}
-                placeholder="MESSAGE"
-                rows={4}
-                cols={50}
-                {...register("message", {
-                  required: true,
-                  maxLength: 2000,
-                })}
-              />
-              {errors.message && (
-                <p className="mt-1 text-primary-500">
-                  {errors.message.type === "required" && "This field is required."}
-                  {errors.message.type === "maxLength" && "Max length is 2000 char."}
-                </p>
-              )}
+              {
+                contactFormData.map(formData => (
+                  <div className="relative" key={formData.id}>
+                    {
+                      formData.element === 'input' ? (
+                        <>
+                          <input
+                            className={inputStyles}
+                            type={formData.type}
+                            placeholder={formData.placeholder}
+                            {...register(formData.id, {
+                              required: formData.required,
+                              maxLength: formData.maxLength,
+                              pattern: formData.pattern,
+                            })}
+                          />
+                          {errors[formData.id] && (
+                            <p className={`text-primary-500 absolute -top-6 right-0`}>
+                              {errors?.[formData.id]?.type === "required" && formData.error.requiredInfo}
+                              {
+                                formData.type === 'email'
+                                  ? errors?.[formData.id]?.type === "pattern" && formData.error.patternInfo
+                                  : errors?.[formData.id]?.type === "maxLength" && formData.error.maxLengthInfo
+                              }
+                            </p>
+                          )}
+                        </>
+                      ) : (
+                        <>
+                          <textarea
+                            className={inputStyles}
+                            placeholder={formData.placeholder}
+                            rows={4}
+                            cols={50}
+                            {...register(formData.id, {
+                              required: formData.required,
+                              maxLength: formData.maxLength,
+                            })}
+                          />
+                          {errors[formData.id] && (
+                            <p className={`text-primary-500 absolute -top-6 right-0`}>
+                              {errors?.[formData.id]?.type === "required" && formData.error.requiredInfo}
+                              {errors?.[formData.id]?.type === "maxLength" && formData.error.maxLengthInfo}
+                            </p>
+                          )}
+                        </>
+                      )
+                    }
+                  </div>
+                ))
+              }
 
               <button
                 type="submit"

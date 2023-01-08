@@ -20,6 +20,44 @@ export const sectionName = [
     },
 ]
 
+export const contactFormData = [
+    {
+        id: 'name',
+        type: 'text',
+        element: 'input',
+        placeholder: 'Your Name',
+        required: true,
+        maxLength: 100,
+        error: {
+            requiredInfo: 'This field is required.',
+            maxLengthInfo: 'Max length is 100 char.',
+        }
+    },
+    {
+        id: 'email',
+        type: 'email',
+        element: 'input',
+        placeholder: 'Email Address',
+        required: true,
+        pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        error: {
+            requiredInfo: 'This field is required.',
+            patternInfo: 'Invalid email address.',
+        }
+    },
+    {
+        id: 'message',
+        element: 'textarea',
+        placeholder: 'Your Message...',
+        required: true,
+        maxLength: 2000,
+        error: {
+            requiredInfo: 'This field is required.',
+            maxLengthInfo: 'Max length is 2000 char.',
+        }
+    },
+]
+
 export const classes: Array<ClassType> = [
     {
         name: "Weight Training Classes",
