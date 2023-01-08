@@ -13,6 +13,7 @@ type Props = {
 
 const ContactUs = ({ setSelectedPage }: Props) => {
 
+  const emailLink = 'https://formsubmit.co/30cc3c9cf1c5d5320aa7d4e9c63d5c4d';
   const inputStyles = `mb-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-white`;
 
   const { register, trigger, formState: { errors } } = useForm();
@@ -46,6 +47,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
 
         {/* FORM AND IMAGE */}
         <div className="mt-10 justify-between gap-8 md:flex">
+
           <motion.div
             className="mt-10 basis-3/5 md:mt-0"
             {...commonAnimations}
@@ -53,7 +55,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <form
               target="_blank"
               onSubmit={onSubmit}
-              action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
+              action={emailLink}
               method="POST"
             >
               <input
@@ -68,8 +70,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               {errors.name && (
                 <p className="mt-1 text-primary-500">
                   {errors.name.type === "required" && "This field is required."}
-                  {errors.name.type === "maxLength" &&
-                    "Max length is 100 char."}
+                  {errors.name.type === "maxLength" && "Max length is 100 char."}
                 </p>
               )}
 
@@ -84,8 +85,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               />
               {errors.email && (
                 <p className="mt-1 text-primary-500">
-                  {errors.email.type === "required" &&
-                    "This field is required."}
+                  {errors.email.type === "required" && "This field is required."}
                   {errors.email.type === "pattern" && "Invalid email address."}
                 </p>
               )}
@@ -102,10 +102,8 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               />
               {errors.message && (
                 <p className="mt-1 text-primary-500">
-                  {errors.message.type === "required" &&
-                    "This field is required."}
-                  {errors.message.type === "maxLength" &&
-                    "Max length is 2000 char."}
+                  {errors.message.type === "required" && "This field is required."}
+                  {errors.message.type === "maxLength" && "Max length is 2000 char."}
                 </p>
               )}
 
@@ -130,8 +128,9 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               />
             </div>
           </motion.div>
-          
+
         </div>
+
       </motion.div>
     </section>
   );

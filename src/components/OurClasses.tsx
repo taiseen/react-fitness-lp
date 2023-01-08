@@ -1,5 +1,5 @@
-import { SelectedPage, ClassType } from '@/shared/types';
 import { classes, commonAnimations } from '@/constants/data';
+import { SelectedPage, ClassType } from '@/shared/types';
 import { motion } from "framer-motion";
 import { useRef } from 'react';
 import OurClassesChild from './OurClassesChild';
@@ -66,10 +66,8 @@ const OurClasses = ({ setSelectedPage }: Props) => {
             {
               classes.map((item: ClassType, index) => (
                 <OurClassesChild
+                  {...item}
                   key={`${item.name}-${index}`}
-                  name={item.name}
-                  description={item.description}
-                  image={item.image}
                 />
               ))
             }
